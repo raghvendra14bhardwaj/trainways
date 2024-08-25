@@ -1,0 +1,12 @@
+.homepage-container{
+    position: absolute;
+    top: 64px;
+    right: 0;
+    bottom: 0;
+    width: 99vw;
+    height: 91vh;
+    background-image: url(../Images/train.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
