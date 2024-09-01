@@ -28,7 +28,11 @@ function Header() {
   return (
     <AppBar position="fixed" sx={{ zIndex: "2" }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <img src={logo} alt="logo" style={{ height: "60px", width: "100px" }} />
+        <img
+          src={logo}
+          alt="logo"
+          style={{ height: "60px", width: "100px", mixBlendMode: "multiply" }}
+        />
         <Typography fontWeight={theme.typography.fontWeightBold}>
           {time.toLocaleString()}
         </Typography>

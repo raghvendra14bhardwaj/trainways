@@ -1,12 +1,7 @@
 import { Box } from "@mui/material";
-import "./Home.css";
 
 function Home() {
-  return (
-    <div className="homepage-container">
-      <Box></Box>
-    </div>
-  );
+  return <Box></Box>;
 }
 
 export default Home;
