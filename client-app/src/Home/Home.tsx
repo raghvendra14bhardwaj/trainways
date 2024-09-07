@@ -1,7 +1,20 @@
-import { Box } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import BookTicket from "./BookTicket";
 
 function Home() {
-  return <Box></Box>;
+  const theme = useTheme();
+  return (
+    <Stack justifyContent="center" alignItems="center">
+      <BookTicket />
+    </Stack>
+  );
 }
 
 export default Home;

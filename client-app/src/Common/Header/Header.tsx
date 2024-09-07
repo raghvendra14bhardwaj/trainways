@@ -9,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import logo from "../../Images/logo2.png";
+import logo from "../../Images/logo.svg";
 import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
@@ -28,11 +28,7 @@ function Header() {
   return (
     <AppBar position="fixed" sx={{ zIndex: "2" }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <img
-          src={logo}
-          alt="logo"
-          style={{ height: "60px", width: "100px", mixBlendMode: "multiply" }}
-        />
+        <img src={logo} alt="logo" style={{ height: "60px", width: "100px" }} />
         <Typography fontWeight={theme.typography.fontWeightBold}>
           {time.toLocaleString()}
         </Typography>

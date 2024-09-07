@@ -24,7 +24,7 @@ export const darkTheme = createTheme({
       black: "#000",
     },
     background: {
-      default: "#06101C",
+      default: "#05070a",
       paper: "#050e18",
     },
     text: {
@@ -39,6 +39,21 @@ export const darkTheme = createTheme({
     },
   },
   components: {
+    MuiAppBar: {
+      styleOverrides: {
+        colorPrimary: {
+          background: "#0c1017",
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          background: "#0c1017",
+          color: "#000000",
+        },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
@@ -46,14 +61,9 @@ export const darkTheme = createTheme({
           color: "#ffffff",
           border: "1px solid #333c4d99",
           borderRadius: "8px",
-          height: "2.5rem",
           "&.Mui-focused": {
             BorderColor: "#027AF2",
-            transition: "border 120ms ease-in;",
             outline: "rgba(2, 107, 212, 0.5) solid 3px",
-          },
-          "& :hover": {
-            BorderColor: "#566481",
           },
         },
       },
