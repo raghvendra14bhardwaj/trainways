@@ -2,9 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const stationRouter = require("./routes/station");
 const userRouter = require("./routes/user");
+const trainRouter = require("./routes/train");
 const { connectDatabase } = require("./connection");
 const app = express();
 const PORT = 8000;
+const fs = require("fs");
 
 //Middleware
 app.use(express.urlencoded({ extended: false })); //Postman
@@ -16,6 +18,7 @@ connectDatabase();
 app.use(cors());
 app.use("/stationList", stationRouter);
 app.use("/user", userRouter);
+app.use("/trainList", trainRouter);
 
 app.listen(PORT, () =>
   console.log(`Trainways Services are Up at PORT ${PORT}!!`)
