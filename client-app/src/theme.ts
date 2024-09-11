@@ -1,4 +1,4 @@
-import { BorderColor } from "@mui/icons-material";
+import { BorderColor, BorderOuter } from "@mui/icons-material";
 import { colors, createTheme } from "@mui/material";
 
 const baseTheme = createTheme({
@@ -63,7 +63,7 @@ export const darkTheme = createTheme({
           borderRadius: "8px",
           "&.Mui-focused": {
             BorderColor: "#027AF2",
-            outline: "rgba(2, 107, 212, 0.5) solid 3px",
+            outline: "rgba(2, 107, 212, 0.8) solid 1px",
           },
         },
       },
@@ -75,10 +75,11 @@ export const darkTheme = createTheme({
             {
               props: { variant: "contained" },
               style: {
-                background: "#3c83f6",
+                background: "#F5F6FA",
+                color: "#000000",
                 fontWeight: "600",
-                "& :hover": {
-                  background: "#ffffff",
+                "&:hover": {
+                  background: "#C2C9D6",
                 },
               },
             },

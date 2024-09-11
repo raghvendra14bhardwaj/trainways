@@ -31,7 +31,7 @@ export default function Login() {
   const authenticate = async () => {
     const response: any = await authenticateUser(userId, password);
     if (response && response.status === 200) {
-      if (response.data.authenticated === "true") {
+      if (response.data.status === "User authenticated") {
         dispatch(authenticated());
         navigate("/home");
       } else {
@@ -109,7 +109,7 @@ export default function Login() {
         </Stack>
         <Button
           variant="contained"
-          sx={{ marginTop: "20px" }}
+          sx={{ marginTop: "30px !important" }}
           onClick={() => authenticate()}
         >
           Sign in

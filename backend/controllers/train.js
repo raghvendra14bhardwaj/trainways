@@ -2,18 +2,23 @@ const Train = require("../models/train");
 
 async function getTrainList(req, res) {
   const payload = req.body;
-  console.log(payload);
   const source = payload.from;
   const destination = payload.to;
-  const trainList = await Train.find({
+  let trainBetweenStations = await Train.find({
     stations: {
       $all: [
-        { $elemMatch: { code: source } }, // Match for source station code
-        { $elemMatch: { code: destination } }, // Match for destination station code
+        { $elemMatch: { code: source } },
+        { $elemMatch: { code: destination } },
       ],
     },
   });
-  return res.json({ data: trainList });
+  trainBetweenStations = trainBetweenStations.filter((train) => {
+    const station = train.stations;
+    const sourceIndex = station.findIndex((s) => s.code === source);
+    const destiIndex = station.findIndex((s) => s.code === destination);
+    if (sourceIndex < destiIndex) return train;
+  });
+  return res.json({ data: trainBetweenStations });
 }
 
 module.exports = { getTrainList };

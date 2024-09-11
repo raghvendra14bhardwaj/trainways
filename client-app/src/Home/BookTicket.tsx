@@ -29,6 +29,7 @@ import { useEffect, useState } from "react";
 import { fetchStationList } from "../data/booking";
 import { IJourneyDetails } from "../Common/Interface/Interface";
 import dayjs from "dayjs";
+import TrainIcon from "@mui/icons-material/Train";
 
 const filterStations = (keyword: string, stationList: string[]) => {
   let list = stationList.filter((station) =>
@@ -59,20 +60,32 @@ export default function BookTicket() {
   }, []);
 
   return (
-    <Card variant="outlined" sx={{ width: "600px", height: "600px" }}>
+    <Card
+      variant="outlined"
+      sx={{
+        width: "500px",
+        marginTop: "10px !important",
+      }}
+    >
       <CardContent>
         <Typography
           gutterBottom
-          sx={{ color: "text.secondary", fontSize: 24, fontWeight: 600 }}
+          sx={{
+            color: "text.secondary",
+            fontSize: 24,
+            fontWeight: 700,
+            textAlign: "center",
+            marginBottom: "20px",
+          }}
         >
           BOOK TICKET
         </Typography>
-        <Stack spacing={2} alignItems="center">
+        <Stack spacing={3} alignItems="center">
           <Stack direction="row" alignItems="center" spacing={1}>
             <NearMeIcon />
             <Autocomplete
               disablePortal
-              noOptionsText="From where"
+              noOptionsText="City or Station"
               filterOptions={(stationList, params) => {
                 const { inputValue } = params;
                 let filtered: string[] = [];
@@ -84,7 +97,7 @@ export default function BookTicket() {
               disableClearable
               disableListWrap
               options={stationList}
-              sx={{ width: 500 }}
+              sx={{ width: 400 }}
               renderInput={(params) => <TextField {...params} label="From" />}
               onChange={(event: any, newValue: string | null) => {
                 setJourneyDetails({
@@ -105,11 +118,11 @@ export default function BookTicket() {
                   filtered = filterStations(inputValue, stationList);
                 return filtered;
               }}
-              noOptionsText="To where"
+              noOptionsText="City or Station"
               disablePortal
               disableClearable
               options={stationList}
-              sx={{ width: 500 }}
+              sx={{ width: 400 }}
               renderInput={(params) => <TextField {...params} label="To" />}
               onChange={(event: any, newValue: string | null) => {
                 setJourneyDetails({
@@ -123,7 +136,7 @@ export default function BookTicket() {
             <CalendarMonthIcon />
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
-                sx={{ width: 500 }}
+                sx={{ width: 400 }}
                 label="Date Of Journey"
                 value={dayjs(journeyDetails.doj, "DDMMYYYY")}
                 onChange={(newValue) => {
@@ -142,7 +155,7 @@ export default function BookTicket() {
               <Select
                 value={journeyDetails.class}
                 label="Class"
-                sx={{ width: 500 }}
+                sx={{ width: 400 }}
                 onChange={(input) => {
                   setJourneyDetails({
                     ...journeyDetails,
@@ -168,7 +181,7 @@ export default function BookTicket() {
               <Select
                 value={journeyDetails.category}
                 label="Category"
-                sx={{ width: 500 }}
+                sx={{ width: 400 }}
                 onChange={(input) => {
                   setJourneyDetails({
                     ...journeyDetails,
@@ -185,9 +198,10 @@ export default function BookTicket() {
           <Button
             variant="contained"
             color="secondary"
-            sx={{ width: "200px", marginTop: "20px" }}
+            startIcon={<TrainIcon />}
+            sx={{ width: "200px", marginTop: "25px !important" }}
           >
-            Search
+            Find Trains
           </Button>
         </Stack>
       </CardContent>

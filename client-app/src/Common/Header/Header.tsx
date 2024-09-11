@@ -32,26 +32,28 @@ function Header() {
         <Typography fontWeight={theme.typography.fontWeightBold}>
           {time.toLocaleString()}
         </Typography>
-        <Stack direction="row" alignItems="center" spacing={1}>
-          {authenticated ? (
-            <Typography fontWeight={theme.typography.fontWeightMedium}>
-              Hi, Raghvendra
-            </Typography>
-          ) : (
-            <Link to={"/sign-in"}>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-              >
-                <AccountCircleIcon />
-                <Typography> Sign in</Typography>
-              </IconButton>
-            </Link>
-          )}
-        </Stack>
+
+        {authenticated ? (
+          <Typography fontWeight={theme.typography.fontWeightMedium}>
+            Hi, Raghvendra
+          </Typography>
+        ) : (
+          <Link
+            to={"/sign-in"}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <AccountCircleIcon />
+              <Typography marginLeft={1}> Sign in</Typography>
+            </IconButton>
+          </Link>
+        )}
       </Toolbar>
     </AppBar>
   );
